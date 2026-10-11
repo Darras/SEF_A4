@@ -19,13 +19,21 @@ String publishDateTime, String dueDateTime, String
 hideDateTime) {
 //TODO: initilise all the attributes
 this.name = name;
+
 this.description = description;
+
 this.points = points;
+
 this.submissionType = submissionType;
+
 this.group = group;
+
 this.groupingName = groupingName;
+
 this.publishDateTime = publishDateTime;
+
 this.dueDateTime = dueDateTime;
+
 this.hideDateTime = hideDateTime;
 }
 }
