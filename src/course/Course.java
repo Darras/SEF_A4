@@ -36,6 +36,10 @@ this.dueDateTime = dueDateTime;
 
 this.hideDateTime = hideDateTime;
 }
+
+//getter for point attribute
+public int getPoints() {
+    return points;
 }
 
 
@@ -43,9 +47,18 @@ public class Course {
 
 private List<Assessment> assessments = new java.util.ArrayList<>();
 
+//method to get the list of assessments
 public List<Assessment> getAssessments() {
         return assessments;
     }
+//method to get total points of all assessments
+public int getTotalPoints() {
+    int totalPoints = 0;
+    for (Assessment assessment : assessments){
+        totalPoints += assessment.getPoints();
+    }
+    return totalPoints;
+}
 
 public boolean createNewAssessment(String name, String description, int points,
 String submissionType, boolean group, String
@@ -61,5 +74,6 @@ boolean valid = true;
 // the function should only return false.
 return valid;
 
+}
 }
 }
