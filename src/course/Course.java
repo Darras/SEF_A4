@@ -72,6 +72,11 @@ boolean valid = true;
 // add it in the assessments list and then return true.
 //else
 // the function should only return false.
+
+//implementation of condition-5
+  if (points > 50){
+    valid = false;
+  }
 return valid;
 
 }
