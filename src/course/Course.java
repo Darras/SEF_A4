@@ -26,6 +26,10 @@ public class Course {
 
 private List<Assessment> assessments;
 
+public List<Assessment> getAssessments() {
+        return assessments;
+    }
+
 public boolean createNewAssessment(String name, String description, int points,
 String submissionType, boolean group, String
 groupingName,
