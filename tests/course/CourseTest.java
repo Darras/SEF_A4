@@ -15,7 +15,7 @@ public class CourseTest {
 
     //record the initial size of the assessments list
     int initialSize = course.getAssessments().size();
-    
+
     //precondition: ensure that the assessments list is not null
     assertNotNull(course.getAssessments());
 
@@ -26,6 +26,6 @@ public class CourseTest {
     assertEquals(initialSize, course.getAssessments().size());
   }
   
-  //
+  
 
 }
