@@ -73,6 +73,13 @@ boolean valid = true;
 //else
 // the function should only return false.
 
+
+//IMPLEMENTATION CONDITONS 1-4
+
+
+
+//IMPLEMENTATION OF CONDITIONS 5-8
+
 //implementation of condition-5
   if (points > 50){
 
@@ -97,6 +104,9 @@ if (group && (groupingName.equals(""))) {
 
     valid = false;
 }
+
+
+//IMPLEMENTATION OF CONDITIONS 9-11 plus the test case where everything passes
 
   
 
