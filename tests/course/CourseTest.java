@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Test;
 public class CourseTest {
 
 
+  //TEST CASES 1-4
+  //AISHI YOUR TEST CASES 1-4 go here ive added mine below
+
+
 
   //TEST CASES 5-8
   
