@@ -86,7 +86,7 @@ boolean valid = true;
   }
 
 //implementation of condition-7
-  if (!submissionType.equals("pdf") && !submissionType.equals("zip") && !submissionType.equals("docx")){
+  if (!submissionType.equals("pdf") && !submissionType.equals("zip") && !submissionType.equals("doc")){
 
     valid  = false;
   }
