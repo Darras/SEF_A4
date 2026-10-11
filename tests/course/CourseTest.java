@@ -4,6 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class CourseTest {
+
+
+
+  //TEST CASES 5-8
   
   //test case to check if the assessment points cannot exceed 50
   @Test
