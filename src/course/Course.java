@@ -90,18 +90,24 @@ boolean valid = true;
   if (points > 50){
 
     valid = false;
+
+    return valid;
   }
 
 //implementation of condition-6
   if (getTotalPoints() + points > 100){
 
     valid = false;
+
+    return valid;
   }
 
 //implementation of condition-7
   if (!submissionType.equals("pdf") && !submissionType.equals("zip") && !submissionType.equals("doc")){
 
     valid  = false;
+
+    return valid;
   }
 
 //implementation of condition-8
@@ -109,6 +115,8 @@ boolean valid = true;
 if (group && (groupingName.equals(""))) {
 
     valid = false;
+
+    return valid;
 }
 
 
@@ -121,8 +129,15 @@ if (group && (groupingName.equals(""))) {
 
   
 
-  
+
+
+//end of the function, if all the conditions are met, create a new assessment and add it to the assessment list
+Assessment newAssessment = new Assessment(name, description, points, submissionType, group, groupingName, publishDateTime, dueDateTime, hideDateTime);
+assessments.add(newAssessment);
+
+//return true if all the conditions are met and the assessment is created successfully
 return valid;
+
 
 }
 }
