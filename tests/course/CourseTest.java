@@ -7,7 +7,7 @@ public class CourseTest {
   
   //test case to check if the assessment points cannot exceed 50
   @Test
-  void TestPointsCannotExceed50(){
+  void testPointsCannotExceed50(){
 
     
 
@@ -25,4 +25,9 @@ public class CourseTest {
     assertFalse(result);
     assertEquals(initialSize, course.getAssessments().size());
   }
+
+  //test case to check if the total assessment points for all assessments in a course cannot exceed 100
+  @Test
+  void testTotalPointsCannotExceed100(){
+
 }
