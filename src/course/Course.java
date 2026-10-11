@@ -84,7 +84,6 @@ boolean valid = true;
 
 //IMPLEMENTATION OF CONDITIONS 5-8
 
-//
 
 //implementation of condition-5
   if (points > 50){
