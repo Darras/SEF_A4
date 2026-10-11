@@ -91,6 +91,13 @@ boolean valid = true;
     valid  = false;
   }
 
+//implementation of condition-8
+
+if (group && (groupingName.equals(""))) {
+
+    valid = false;
+}
+
   
 
   
