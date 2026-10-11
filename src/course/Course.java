@@ -24,7 +24,7 @@ hideDateTime) {
 
 public class Course {
 
-private List<Assessment> assessments;
+private List<Assessment> assessments = new java.util.ArrayList<>();
 
 public List<Assessment> getAssessments() {
         return assessments;
