@@ -25,7 +25,4 @@ public class CourseTest {
     assertFalse(result);
     assertEquals(initialSize, course.getAssessments().size());
   }
-  
-  //
-
 }

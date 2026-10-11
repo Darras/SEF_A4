@@ -41,7 +41,7 @@ this.hideDateTime = hideDateTime;
 public int getPoints() {
     return points;
 }
-
+}
 
 public class Course {
 
@@ -76,4 +76,4 @@ return valid;
 
 }
 }
-}
+
