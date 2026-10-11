@@ -75,8 +75,19 @@ boolean valid = true;
 
 //implementation of condition-5
   if (points > 50){
+
     valid = false;
   }
+
+//implementation of condition-6
+  if (getTotalPoints() + points > 100){
+
+    valid = false;
+  }
+
+  
+
+  
 return valid;
 
 }
