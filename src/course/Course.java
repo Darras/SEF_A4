@@ -85,12 +85,11 @@ boolean valid = true;
 //Implementation of condition-1
 for (Assessment assessment : assessments) {
 
-    if (assessment.getName().equals(name)) {
+  if (assessment.getName().equals(name)) {
 
-        valid = false;
-
-        return valid;
-    }
+    valid = false;
+    return valid;
+  }
 }
 
 //Implementation of condition-2
