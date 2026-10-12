@@ -84,6 +84,34 @@ void testAssessmentNameCannotBeBlank() {
     assertEquals(initialSize, course.getAssessments().size());
 }
 
+//Test case to check that the assessment description must have at least 3 words
+@Test
+void testAssessmentDescriptionMustHaveAtLeast3Words() {
+
+    //Create a new course object
+    Course course = new Course();
+
+    //Record the initial number of assessments
+    int initialSize = course.getAssessments().size();
+
+    //Try to create an assessment with a description containing only 2 words
+    boolean result = course.createNewAssessment(
+        "assignment two",
+        "valid description",
+        10,
+        "pdf",
+        false,
+        "",
+        "01/11/2026 09:00",
+        "10/11/2026 23:59",
+        "11/11/2026 23:59"
+    );
+
+    //Assert that the assessment is rejected
+    assertFalse(result);
+    assertEquals(initialSize, course.getAssessments().size());
+}
+
 
 
   //TEST CASES 5-8

@@ -99,6 +99,12 @@ if (name.trim().isEmpty()) {
     return valid;
 }
 
+//Implementation of condition-3: Assessment description must have at least 3 words
+if (description.trim().split("\\s+").length < 3) {
+    valid = false;
+    return valid;
+}
+
 
 //IMPLEMENTATION OF CONDITIONS 5-8
 
