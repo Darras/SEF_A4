@@ -18,13 +18,47 @@ String submissionType, boolean group, String groupingName,
 String publishDateTime, String dueDateTime, String
 hideDateTime) {
 //TODO: initilise all the attributes
-}
+this.name = name;
+
+this.description = description;
+
+this.points = points;
+
+this.submissionType = submissionType;
+
+this.group = group;
+
+this.groupingName = groupingName;
+
+this.publishDateTime = publishDateTime;
+
+this.dueDateTime = dueDateTime;
+
+this.hideDateTime = hideDateTime;
 }
 
+//getter for point attribute
+public int getPoints() {
+    return points;
+}
+}
 
 public class Course {
 
-private List<Assessment> assessments;
+private List<Assessment> assessments = new java.util.ArrayList<>();
+
+//method to get the list of assessments
+public List<Assessment> getAssessments() {
+        return assessments;
+    }
+//method to get total points of all assessments
+public int getTotalPoints() {
+    int totalPoints = 0;
+    for (Assessment assessment : assessments){
+        totalPoints += assessment.getPoints();
+    }
+    return totalPoints;
+}
 
 public boolean createNewAssessment(String name, String description, int points,
 String submissionType, boolean group, String
@@ -38,7 +72,72 @@ boolean valid = true;
 // add it in the assessments list and then return true.
 //else
 // the function should only return false.
+
+
+//IMPLEMENTATION CONDITONS 1-4
+
+
+//    AISHI YOUR CODE GOES HERE
+
+//
+
+
+//IMPLEMENTATION OF CONDITIONS 5-8
+
+
+//implementation of condition-5
+  if (points > 50){
+
+    valid = false;
+
+    return valid;
+  }
+
+//implementation of condition-6
+  if (getTotalPoints() + points > 100){
+
+    valid = false;
+
+    return valid;
+  }
+
+//implementation of condition-7
+  if (!submissionType.equals("pdf") && !submissionType.equals("zip") && !submissionType.equals("doc")){
+
+    valid  = false;
+
+    return valid;
+  }
+
+//implementation of condition-8
+
+if (group && (groupingName.equals(""))) {
+
+    valid = false;
+
+    return valid;
+}
+
+
+//IMPLEMENTATION OF CONDITIONS 9-11 plus the test case where everything passes
+
+        //PRISHA YOUR CODE GOES HERE
+//
+
+  
+
+  
+
+
+
+//end of the function, if all the conditions are met, create a new assessment and add it to the assessment list
+Assessment newAssessment = new Assessment(name, description, points, submissionType, group, groupingName, publishDateTime, dueDateTime, hideDateTime);
+assessments.add(newAssessment);
+
+//return true if all the conditions are met and the assessment is created successfully
 return valid;
+
 
 }
 }
+
