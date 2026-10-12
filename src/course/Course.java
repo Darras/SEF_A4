@@ -93,6 +93,12 @@ for (Assessment assessment : assessments) {
     }
 }
 
+//Implementation of condition-2: Assessment name cannot be blank
+if (name.trim().isEmpty()) {
+    valid = false;
+    return valid;
+}
+
 
 //IMPLEMENTATION OF CONDITIONS 5-8
 
