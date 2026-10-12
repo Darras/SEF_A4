@@ -9,7 +9,6 @@ public class CourseTest {
 
 
   //TEST CASES 1-4
-  //TEST CASES 1-4
 
 //Test case to check that assessment names must be unique
 @Test
