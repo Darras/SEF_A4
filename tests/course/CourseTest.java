@@ -21,7 +21,7 @@ void testAssessmentNameMustBeUnique() {
     boolean firstResult = course.createNewAssessment(
         "assignment one",
         "a valid description",
-        10,
+        50,
         "pdf",
         false,
         "",
@@ -41,7 +41,7 @@ void testAssessmentNameMustBeUnique() {
     boolean result = course.createNewAssessment(
         "assignment one",
         "another valid description",
-        10,
+        50,
         "pdf",
         false,
         "",
@@ -69,7 +69,7 @@ void testAssessmentNameCannotBeBlank() {
     boolean result = course.createNewAssessment(
         "",
         "a valid description",
-        10,
+        50,
         "pdf",
         false,
         "",
@@ -97,7 +97,7 @@ void testAssessmentDescriptionMustHaveAtLeast3Words() {
     boolean result = course.createNewAssessment(
         "assignment two",
         "valid description",
-        10,
+        50,
         "pdf",
         false,
         "",
