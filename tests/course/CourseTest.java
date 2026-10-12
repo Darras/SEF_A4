@@ -112,6 +112,34 @@ void testAssessmentDescriptionMustHaveAtLeast3Words() {
     assertEquals(initialSize, course.getAssessments().size());
 }
 
+//Test case to check that assessment points must be greater than 0
+@Test
+void testAssessmentPointsMustBeGreaterThanZero() {
+
+    //Create a new course object
+    Course course = new Course();
+
+    //Record the initial number of assessments
+    int initialSize = course.getAssessments().size();
+
+    //Try to create an assessment with 0 points
+    boolean result = course.createNewAssessment(
+        "assignment three",
+        "this is a valid description",
+        0,
+        "pdf",
+        false,
+        "",
+        "01/11/2026 09:00",
+        "10/11/2026 23:59",
+        "11/11/2026 23:59"
+    );
+
+    //Assert that the assessment is rejected
+    assertFalse(result);
+    assertEquals(initialSize, course.getAssessments().size());
+}
+
 
 
   //TEST CASES 5-8

@@ -82,7 +82,7 @@ boolean valid = true;
 
 //IMPLEMENTATION CONDITIONS 1-4
 
-//Implementation of condition-1: Assessment names must be unique
+//Implementation of condition-1
 for (Assessment assessment : assessments) {
 
     if (assessment.getName().equals(name)) {
@@ -93,14 +93,20 @@ for (Assessment assessment : assessments) {
     }
 }
 
-//Implementation of condition-2: Assessment name cannot be blank
+//Implementation of condition-2
 if (name.trim().isEmpty()) {
     valid = false;
     return valid;
 }
 
-//Implementation of condition-3: Assessment description must have at least 3 words
+//Implementation of condition-3
 if (description.trim().split("\\s+").length < 3) {
+    valid = false;
+    return valid;
+}
+
+//Implementation of condition-4
+if (points <= 0) {
     valid = false;
     return valid;
 }
