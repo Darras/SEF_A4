@@ -41,6 +41,12 @@ this.hideDateTime = hideDateTime;
 public int getPoints() {
     return points;
 }
+
+// Getter for the assessment name
+public String getName() {
+    return name;
+}
+
 }
 
 public class Course {
@@ -74,12 +80,18 @@ boolean valid = true;
 // the function should only return false.
 
 
-//IMPLEMENTATION CONDITONS 1-4
+//IMPLEMENTATION CONDITIONS 1-4
 
+//Implementation of condition-1: Assessment names must be unique
+for (Assessment assessment : assessments) {
 
-//    AISHI YOUR CODE GOES HERE
+    if (assessment.getName().equals(name)) {
 
-//
+        valid = false;
+
+        return valid;
+    }
+}
 
 
 //IMPLEMENTATION OF CONDITIONS 5-8

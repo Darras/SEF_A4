@@ -5,13 +5,56 @@ import org.junit.jupiter.api.Test;
 
 
 
-
-// C5
 public class CourseTest {
 
 
   //TEST CASES 1-4
-  //AISHI YOUR TEST CASES 1-4 go here ive added mine below
+  //TEST CASES 1-4
+
+//Test case to check that assessment names must be unique
+@Test
+void testAssessmentNameMustBeUnique() {
+
+    //Create a new course object
+    Course course = new Course();
+
+    //Create the first assessment
+    boolean firstResult = course.createNewAssessment(
+        "assignment one",
+        "a valid description",
+        10,
+        "pdf",
+        false,
+        "",
+        "01/11/2026 09:00",
+        "10/11/2026 23:59",
+        "11/11/2026 23:59"
+    );
+
+    //Precondition: the first assessment was created successfully
+    assertTrue(firstResult);
+    assertEquals(1, course.getAssessments().size());
+
+    //Record the initial number of assessments
+    int initialSize = course.getAssessments().size();
+
+    //Try to create another assessment with the same name
+    boolean result = course.createNewAssessment(
+        "assignment one",
+        "another valid description",
+        10,
+        "pdf",
+        false,
+        "",
+        "01/12/2026 09:00",
+        "10/12/2026 23:59",
+        "11/12/2026 23:59"
+    );
+
+    //Assert that the duplicate assessment is rejected
+    assertFalse(result);
+    assertEquals(initialSize, course.getAssessments().size());
+}
 
 
 
