@@ -149,14 +149,61 @@ if (group && (groupingName.equals(""))) {
 
 
 //IMPLEMENTATION OF CONDITIONS 9-11 plus the test case where everything passes
+// Condition 9: Grouping names must be unique
+        if (group) {
+            for (Assessment assessment : assessments) {
+                if (assessment.isGroup()
+                        && assessment.getGroupingName()
+                                .equals(groupingName)) {
+                    return false;
+                }
+            }
+        }
+// Condition 10: Strict date and time validation
+        DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .appendPattern("dd/MM/uuuu HH:mm")
+                .toFormatter(Locale.ROOT)
+                .withResolverStyle(ResolverStyle.STRICT);
 
-        //PRISHA YOUR CODE GOES HERE
-//
+        LocalDateTime publishDate;
+        LocalDateTime dueDate;
+        LocalDateTime hideDate;
 
-  
+        try {
+            publishDate =
+                    LocalDateTime.parse(publishDateTime, formatter);
 
-  
+            dueDate =
+                    LocalDateTime.parse(dueDateTime, formatter);
 
+            hideDate =
+                    LocalDateTime.parse(hideDateTime, formatter);
+
+        } catch (DateTimeParseException | NullPointerException e) {
+            return false;
+        }
+
+// Condition 11: Publish date < due date < hide date
+        if (!publishDate.isBefore(dueDate)
+                || !dueDate.isBefore(hideDate)) {
+            return false;
+        }
+
+// All conditions passed: create and add assessment
+        Assessment newAssessment = new Assessment(
+                name,
+                description,
+                points,
+                submissionType,
+                group,
+                groupingName,
+                publishDateTime,
+                dueDateTime,
+                hideDateTime);
+
+        assessments.add(newAssessment);
+
+        return true;
 
 
 //end of the function, if all the conditions are met, create a new assessment and add it to the assessment list

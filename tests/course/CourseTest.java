@@ -234,4 +234,92 @@ void testAssessmentPointsMustBeGreaterThanZero() {
     assertFalse(result);
     assertEquals(initialSize, course.getAssessments().size());
   }
+    //Test cases 9-11
+    // test to see if the grouping name is unique
+    @Test
+    void testGroupingNameMustBeUnique() {
+        Course course = new Course();
+
+        boolean firstResult = course.createNewAssessment(
+                "assignment one",
+                "this is a valid description",
+                20, "pdf", true, "Group A",
+                "01/11/2026 09:00",
+                "10/11/2026 23:59",
+                "11/11/2026 23:59");
+
+        assertTrue(firstResult);
+
+        int initialSize = course.getAssessments().size();
+
+        boolean result = course.createNewAssessment(
+                "assignment two",
+                "this is another valid description",
+                20, "pdf", true, "Group A",
+                "02/11/2026 09:00",
+                "12/11/2026 23:59",
+                "13/11/2026 23:59");
+
+        assertFalse(result);
+        assertEquals(initialSize, course.getAssessments().size());
+    }
+
+    //test for strict date validation
+    @Test
+    void testInvalidDateMustBeRejected() {
+        Course course = new Course();
+
+        boolean result = course.createNewAssessment(
+                "assignment one",
+                "this is a valid description",
+                20, "pdf", false, "",
+                "29/02/2026 20:00",
+                "10/03/2026 23:59",
+                "11/03/2026 23:59");
+
+        assertFalse(result);
+        assertEquals(0, course.getAssessments().size());
+    }
+
+    //test to see if hide date is after due date
+    @Test
+    void testHideDateMustBeAfterDueDate() {
+        Course course = new Course();
+
+        boolean result = course.createNewAssessment(
+                "assignment one",
+                "this is a valid description",
+                20, "pdf", false, "",
+                "01/11/2026 09:00",
+                "10/11/2026 23:59",
+                "09/11/2026 23:59");
+
+        assertFalse(result);
+        assertEquals(0, course.getAssessments().size());
+    }
+
+    // test to see if all conditions pass
+    @Test
+    void testCreateAssessmentWithAllValidConditions() {
+        Course course = new Course();
+
+        int initialSize = course.getAssessments().size();
+
+        boolean result = course.createNewAssessment(
+                "valid assignment",
+                "this is a valid description",
+                20, "pdf", true, "Group A",
+                "01/11/2026 09:00",
+                "10/11/2026 23:59",
+                "11/11/2026 23:59");
+
+        assertTrue(result);
+        assertEquals(initialSize + 1,
+                course.getAssessments().size());
+
+        assertEquals(
+                "valid assignment",
+                course.getAssessments().get(initialSize).getName());
+    }
+
 }
